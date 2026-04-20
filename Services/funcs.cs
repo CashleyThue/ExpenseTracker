@@ -42,6 +42,27 @@ namespace ExpenseTracker.Services
             FileStorage.WriteAll(entries);
         }
 
+        public static int GetTotal()
+        {
+            var entries = FileStorage.ReadAll();
+            int total = 0;
+            if (entries.Count == 0)
+            {
+                return 0;
+            }
+            foreach (var entry in entries)
+            {
+                string[] temp = entry.Split('|');
+                if (!int.TryParse(temp[0].Replace("$", "").Trim(), out int n))
+                {
+                    Console.WriteLine("Invalid Entry in Expense List.");
+                }
+
+                total += n;
+            }
+            return total;
+        }
+
         public static void ShowExpenses()
         {
             Console.Clear();
@@ -54,6 +75,7 @@ namespace ExpenseTracker.Services
                 Console.WriteLine($"{index}. ${expense.Amount} - {expense.Reason} ({expense.Level})");
                 index++;
             }
+            Console.WriteLine("Total: $" + GetTotal());
             Console.WriteLine("---------------");
         }
     }
