@@ -1,7 +1,7 @@
 ﻿using System;
 using ExpenseTracker.Data;
 using ExpenseTracker.Parser;
-using ExpenseTracker.Functions;
+using ExpenseTracker.Services;
 
 namespace ExpenseTracker
 {

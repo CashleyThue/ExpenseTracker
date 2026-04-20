@@ -5,7 +5,7 @@ using ExpenseTracker.Struct;
 using ExpenseTracker.Parser;
 using System.Linq;
 
-namespace ExpenseTracker.Functions
+namespace ExpenseTracker.Services
 {
     public class ExpenseMethods
     {
